@@ -1,0 +1,26 @@
+{
+  "name": "accent-learning-mongodb",
+  "version": "1.0.0",
+  "description": "MongoDB schemas for accent learning application",
+  "main": "mongoose-models.js",
+  "scripts": {
+    "start": "node mongoose-models.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "mongodb",
+    "mongoose",
+    "accent",
+    "learning"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "mongoose": "^8.0.0",
+    "bcrypt": "^5.1.0",
+    "dotenv": "^16.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.0"
+  }
+}
