@@ -1,8 +1,13 @@
-// MongoDB Models using Mongoose (JavaScript/Node.js)
-// Install: npm install mongoose
-
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
+
+const bcrpt = require('bcrypt');
+
+userSchema.pre('save', async function(next) {
+  if (!this.isModified('password')) return next();
+  this.password = await bcrypt.hash(this.password, 10);
+  next();
+});
 
 // User Schema
 const userSchema = new Schema({
@@ -27,12 +32,6 @@ const userSchema = new Schema({
   }
 }, {
   timestamps: true
-});
-
-// Add unique constraint for initial assessment
-userSchema.index({ _id: 1 }, { 
-  unique: true,
-  partialFilterExpression: { 'initial_assessment': { $exists: true } }
 });
 
 const User = mongoose.model('User', userSchema);
@@ -257,12 +256,9 @@ const subpageSchema = new Schema({
 const Subpage = mongoose.model('Subpage', subpageSchema);
 
 // Database connection function
-async function connectDB(uri = 'mongodb://localhost:27017/accent_learning') {
+async function connectDB(uri = 'mongodb+srv://admin:admin@cluster0.dd1tf36.mongodb.net/naglasci') {
   try {
-    await mongoose.connect(uri, {
-      useNewUrlParser: true,
-      useUnifiedTopology: true
-    });
+    await mongoose.connect(uri);
     console.log('MongoDB connected successfully');
   } catch (error) {
     console.error('MongoDB connection error:', error);
