@@ -3,17 +3,24 @@ const { connectDB } = require('./mongoose-models');
 
 require('dotenv').config();
 
+const authRoutes = require('./routes/auth');
+const taskRoutes = require('./routes/tasks');
+
 const app = express();
 
 app.use(express.json());
 
-connectDB(); 
+app.use('/api/auth', authRoutes);
+app.use('/api/tasks', taskRoutes);
 
 app.get('/', (req, res) => {
-  res.send('Server radi 🚀');
+  res.send('Server radi');
 });
 
-const PORT = 5000;
+connectDB(process.env.MONGO_URI);
+
+const PORT = process.env.PORT || 5000;
+
 app.listen(PORT, () => {
   console.log(`Server radi na portu ${PORT}`);
 });
