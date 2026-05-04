@@ -2,6 +2,7 @@ const express = require('express');
 const { connectDB } = require('./mongoose-models');
 
 require('dotenv').config();
+require("node:dns/promises").setServers(["1.1.1.1", "8.8.8.8"]);
 
 const authRoutes = require('./routes/auth');
 const taskRoutes = require('./routes/task');
