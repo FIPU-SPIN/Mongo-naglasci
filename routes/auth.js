@@ -8,18 +8,27 @@ const jwt = require('jsonwebtoken');
 router.post('/register', async (req, res) => {
   try {
     const { email, password, name } = req.body;
-
     const existingUser = await User.findOne({ email });
     if (existingUser) {
       return res.status(400).json({ error: 'User već postoji' });
     }
-
-    const user = new User({ email, password, name });
+    const user = new User({
+      email,
+      password,
+      name
+    });
     await user.save();
+    res.status(201).json({
+      message: 'User created',
+      user: {
+        id: user._id,
+        email: user.email,
+        name: user.name,
+      }
+    });
 
-    res.json({ message: 'User created' });
   } catch (err) {
-    res.status(400).json({ error: err.message });
+    res.status(500).json({ error: err.message });
   }
 });
 
@@ -29,12 +38,12 @@ router.post('/login', async (req, res) => {
 
     const user = await User.findOne({ email });
     if (!user) {
-      return res.status(400).json({ error: 'User ne postoji' });
+      return res.status(400).json({ error: 'Korisnik ne postoji' });
     }
 
     const isMatch = await bcrypt.compare(password, user.password);
     if (!isMatch) {
-      return res.status(400).json({ error: 'Krivi password' });
+      return res.status(400).json({ error: 'Pogrešna lozinka' });
     }
 
     const token = jwt.sign(

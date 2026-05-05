@@ -256,7 +256,7 @@ const subpageSchema = new Schema({
 const Subpage = mongoose.model('Subpage', subpageSchema);
 
 // Database connection function
-async function connectDB(uri = 'mongodb+srv://admin:admin@cluster0.dd1tf36.mongodb.net/naglasci') {
+async function connectDB(uri = 'mongodb+srv://admin:admin@cluster0.dd1tf36.mongodb.net/Naglasci') {
   try {
     await mongoose.connect(uri);
     console.log('MongoDB connected successfully');
