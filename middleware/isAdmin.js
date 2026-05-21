@@ -1,6 +1,7 @@
 const jwt = require('jsonwebtoken');
 
 function isAdmin(req, res, next) {
+
   const token = req.headers.authorization?.split(" ")[1];
 
   if (!token) {
@@ -10,23 +11,27 @@ function isAdmin(req, res, next) {
   }
 
   try {
+
     const decoded = jwt.verify(token, process.env.JWT_SECRET);
 
-    if (decoded.tip !== "admin") {
+    // mora biti admin token
+    if (!decoded.tip || decoded.tip !== "admin") {
       return res.status(403).json({
-        error: "Samo admin može pristupiti."
+        error: "Niste admin."
       });
     }
 
     req.adminId = decoded.id;
-    req.adminRole = decoded.role;
+    req.adminRole = decoded.role; // super_admin, admin ili moderator
 
     next();
 
   } catch (error) {
+
     return res.status(401).json({
       error: "Token nije valjan."
     });
+
   }
 }
 
