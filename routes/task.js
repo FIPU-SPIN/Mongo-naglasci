@@ -1,15 +1,13 @@
 const express = require('express');
 const router = express.Router();
 
-const { Task } = require('../mongoose-models');
+// Privremene rute samo da server radi
+router.post('/register', (req, res) => {
+  res.json({ message: 'Register radi (privremeno)' });
+});
 
-router.get('/', async (req, res) => {
-  try {
-    const tasks = await Task.find().limit(10);
-    res.json(tasks);
-  } catch (err) {
-    res.status(500).json({ error: err.message });
-  }
+router.post('/login', (req, res) => {
+  res.json({ message: 'Login radi (privremeno)' });
 });
 
 module.exports = router;
