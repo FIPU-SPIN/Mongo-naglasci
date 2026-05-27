@@ -15,8 +15,8 @@ async function run() {
 
     console.log("Stari kviz obrisan");
 
-    const result = await QuizQuestion.insertMany([
-      /* ---------------- INTRO ---------------- */
+    const kviz = [
+      /* ================= INTRO ================= */
       {
         quizId: "kviz1",
         order: 1,
@@ -28,7 +28,7 @@ async function run() {
         note: "Plava = čakavsko | Zelena = kajkavsko | Žuta = štokavsko",
       },
 
-      /* ---------------- Q1a ---------------- */
+      /* ================= Q1A ================= */
       {
         quizId: "kviz1",
         order: 2,
@@ -39,7 +39,7 @@ async function run() {
         options: ["kajkavskom", "čakavskom", "štokavskom"],
       },
 
-      /* ---------------- Q1b ---------------- */
+      /* ================= Q1B ================= */
       {
         quizId: "kviz1",
         order: 3,
@@ -50,7 +50,7 @@ async function run() {
         options: ["istom", "različitom"],
       },
 
-      /* ---------------- Q2 ---------------- */
+      /* ================= Q2 ================= */
       {
         quizId: "kviz1",
         order: 4,
@@ -61,144 +61,156 @@ async function run() {
           "Moje mjesto najdužega boravka pripada _________________ regiji.",
         options: ["zapadnoj", "sjevernoj", "južnoj", "istočnoj"],
         lamp:
-          "Ovisno o podrijetlu roditelja/staratelja, migracijama i obrazovanju, Vaš se naglasni sustav može razlikovati od regionalnog.",
+          "Ovisno o podrijetlu roditelja/staratelja, Vaš se naglasni sustav može razlikovati od regionalnog.",
       },
 
-      /* ---------------- AUDIO Q3 ---------------- */
+      /* ================= Q3 AUDIO + SELECT ================= */
       {
         quizId: "kviz1",
         order: 5,
-        type: "audio",
+        type: "audio_select",
+        id: "q3",
         title:
           "Poslušajte rečenice: Ponovo je zasjalo sunce. Nakon kiše pojavi se duga.",
+
         voices: [
           { label: "govornik 1", audio: "/audio/govornik1.wav" },
           { label: "govornik 2", audio: "/audio/govornik2.wav" },
           { label: "govornica 3", audio: "/audio/govornica3.wav" },
           { label: "govornica 4", audio: "/audio/govornica4.wav" },
         ],
+
+        question:
+          "Možete li prepoznati iz koje regije dolaze govornici?",
+
+        options: ["sjeverna", "zapadna", "južna", "istočna"],
+
+        lamp:
+          "Govornici predstavljaju različite regije i naglasne sustave."
       },
 
-      /* ---------------- Q3 ---------------- */
+      /* ================= Q4 AUDIO + SELECT ================= */
       {
         quizId: "kviz1",
         order: 6,
-        type: "select",
-        id: "q3",
-        question:
-          "Možete li prepoznati iz koje regije dolaze govornici?",
-        options: ["sjeverna", "zapadna", "južna", "istočna"],
-      },
-
-      /* ---------------- AUDIO Q4 ---------------- */
-      {
-        quizId: "kviz1",
-        order: 7,
-        type: "audio",
+        type: "audio_select",
+        id: "q4",
         title:
           "Poslušajte izgovor riječi kiša, sunce, trava, rosa...",
+
         voices: [
           { label: "govornik 1", audio: "/audio/govornik1.wav" },
           { label: "govornik 2", audio: "/audio/govornik2.wav" },
         ],
-      },
 
-      /* ---------------- Q4 ---------------- */
-      {
-        quizId: "kviz1",
-        order: 8,
-        type: "select",
-        id: "q4",
         question:
           "Moj je naglasni sustav sličniji ____________.",
+
         options: ["govorniku 1", "govorniku 2"],
       },
 
-      /* ---------------- Q5 ---------------- */
+      /* ================= Q5 AUDIO + SELECT ================= */
       {
         quizId: "kviz1",
-        order: 9,
-        type: "select",
+        order: 7,
+        type: "audio_select",
         id: "q5",
-        question: "Moj je naglasni sustav __________.",
-        options: ["udarni", "visinski", "miješani", "prijelazni"],
-        zvukovi: [
+
+        title:
+          "Ako je Vaš izgovor sličniji prvome govorniku, vjerojatno je Vaš naglasni sustav VISINSKI, a ako je sličniji drugome, onda je UDARNI.",
+
+        voices: [
           { label: "Primjer 1", audio: "/audio/1-1-2a.wav" },
           { label: "Primjer 2", audio: "/audio/1-1-2b.wav" },
           { label: "Primjer 3", audio: "/audio/1-1-2c.wav" },
           { label: "Primjer 4", audio: "/audio/1-1-2d.wav" },
         ],
+
+        question:
+          "Moj je naglasni sustav __________.",
+
+        options: ["udarni", "visinski", "miješani", "prijelazni"],
+
+        lamp:
+          "Naglasni sustavi se razlikuju po visini i trajanju."
       },
 
-      /* ---------------- Q6 ---------------- */
+      /* ================= Q6 AUDIO + SELECT ================= */
       {
         quizId: "kviz1",
-        order: 10,
-        type: "select",
+        order: 8,
+        type: "audio_select",
         id: "q6",
+
+        title:
+          "Poslušajte izgovor rečenica: Ovo je naglasni priručnik. Nakon kiše pojavi se duga.",
+
+        voices: [
+          { label: "Osijek", audio: "/audio/govornica3.wav" },
+          { label: "Split", audio: "/audio/govornica4.wav" },
+          { label: "Rijeka", audio: "/audio/govornik2.wav" },
+          { label: "Pula", audio: "/audio/govornik1.wav" },
+        ],
+
         question:
           "Koji izgovor pripada visinskom naglasnom sustavu?",
+
         options: ["Osijek", "Split", "Rijeka", "Pula"],
+
+        lamp:
+          "Visinski sustav karakteriziraju uzlazni naglasci."
       },
 
-      /* ---------------- Q7 ---------------- */
+      /* ================= Q7 AUDIO + SUBQUESTIONS ================= */
       {
         quizId: "kviz1",
-        order: 11,
-        type: "select",
-        id: "q7_1",
-        question:
-          "Koji od triju izgovora smatrate „običnim”? ",
-        options: ["1", "2", "3"],
-        correct: "2",
+        order: 9,
+        type: "audio_select",
+        id: "q7",
+
+        title:
+          "Poslušajte rečenicu u tri različita izgovora.",
+
+        voices: [
+          { label: "izgovor 1", audio: "/audio/izgovor1.wav" },
+          { label: "izgovor 2", audio: "/audio/izgovor2.wav" },
+          { label: "izgovor 3", audio: "/audio/izgovor3.wav" },
+        ],
+
+        lamp:
+          "Različiti izgovori prikazuju varijetete standarda.",
+
+        subquestions: [
+          {
+            id: "q7_1",
+            question: "Koji je običan?",
+            options: ["1", "2", "3"],
+            correct: "2",
+          },
+          {
+            id: "q7_2",
+            question: "Koji je visoki stil?",
+            options: ["1", "2", "3"],
+          },
+          {
+            id: "q7_3",
+            question: "Koji je razgovorni?",
+            options: ["1", "2", "3"],
+            correct: "3",
+          },
+          {
+            id: "q7_4",
+            question: "Vaš govor?",
+            options: ["1", "2", "3"],
+          },
+        ],
       },
 
-      {
-        quizId: "kviz1",
-        order: 12,
-        type: "select",
-        id: "q7_2",
-        question:
-          "Koji izgovor je „visoki stil”?",
-        options: ["1", "2", "3"],
-      },
+  ];
 
-      {
-        quizId: "kviz1",
-        order: 13,
-        type: "select",
-        id: "q7_3",
-        question:
-          "Koji izgovor je razgovorni stil?",
-        options: ["1", "2", "3"],
-        correct: "3",
-      },
-
-      {
-        quizId: "kviz1",
-        order: 14,
-        type: "select",
-        id: "q7_4",
-        question:
-          "Je li Vaš govor sličniji 1, 2 ili 3?",
-        options: ["1", "2", "3"],
-      },
-
-      /* ---------------- FEEDBACK ---------------- */
-      {
-        quizId: "kviz1",
-        order: 15,
-        type: "feedback",
-        title: "🎉 Čestitamo!",
-        message: "Uspješno ste riješili kviz!",
-        details:
-          "Vaši odgovori su pohranjeni.",
-        buttonText: "Pogledaj rezultate",
-      },
-    ]);
+    const result = await QuizQuestion.insertMany(kviz);
 
     console.log("✔ KVIZ UBACEN:", result.length, "pitanja");
-
   } catch (err) {
     console.error("Greška:", err);
   } finally {
