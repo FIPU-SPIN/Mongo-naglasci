@@ -14,5 +14,20 @@ router.get("/kviz1", async (req, res) => {
   }
 });
 
+router.get("/kviz2", async (req, res) => {
+  try {
+    const quiz = await QuizQuestion.find({ quizId: "kviz2" }).sort({ order: 1 });
+
+    res.json(quiz);
+  } catch (err) {
+    console.error("Greška u dohvaćanju kviza:", err);
+    res.status(500).json({ error: "Server error" });
+  }
+});
+
+//kviz3
+
+//kviz4
+
 module.exports = router;
 

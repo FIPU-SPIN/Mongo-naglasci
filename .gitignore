@@ -143,8 +143,4 @@ vite.config.ts.timestamp-*
 .vite/
 
 .env
-
-routes/auth.js
-routes/admin.js
-
 node_modules
