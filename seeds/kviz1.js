@@ -38,6 +38,11 @@ async function run() {
           question:
             "Mjesto u kojemu sam najduže boravio/boravila pripada ______ narječju.",
           options: ["kajkavskom", "čakavskom", "štokavskom"],
+          scoring: {
+          kajkavskom: { visinski: 1 },
+          čakavskom: { udarni: 1 },
+          štokavskom: { miješani: 1 }
+    },
       },
 
       /* ================= Q1B ================= */
@@ -49,6 +54,10 @@ async function run() {
           question:
             "Govor mojih roditelja/staratelja pripada ______ narječju.",
           options: ["istom", "različitom"],
+          scoring: {
+          istom: { visinski: 0.5, udarni: 0.5 },
+          različitom: { miješani: 1 }
+        },
       },
 
       /* ================= Q2 ================= */
@@ -63,6 +72,12 @@ async function run() {
           options: ["zapadnoj", "sjevernoj", "južnoj", "istočnoj"],
           lamp:
             "Ovisno o podrijetlu roditelja/staratelja, Vaš se naglasni sustav može razlikovati od regionalnog.",
+          scoring: {
+          zapadnoj: { visinski: 1 },
+          sjevernoj: { visinski: 1 },
+          južnoj: { udarni: 1 },
+          istočnoj: { miješani: 1 }
+        }
       },
 
       /* ================= Q3 AUDIO ================= */
@@ -87,10 +102,16 @@ async function run() {
           quizId: "kviz1",
           order: 6,
           type: "select",
-          id: "q7_1",
+          id: "q3_1",
           question: "Možete li prepoznati iz koje regije dolaze govornici?",
           options: ["sjeverna", "zapadna", "južna", "istočna"],
           lamp: "Govornici predstavljaju različite regije i naglasne sustave.",
+          scoring: {
+          sjeverna: { visinski: 1 },
+          zapadna: { visinski: 1 },
+          južna: { udarni: 1 },
+          istočna: { miješani: 1 }
+        },
       },
 
       /* ================= Q4 AUDIO ================= */
@@ -111,10 +132,14 @@ async function run() {
           quizId: "kviz1",
           order: 8,
           type: "select",
-          id: "q7_1",
+          id: "q4_1",
           question: "Moj je naglasni sustav sličniji __________.",
           options: ["govorniku 1", "govorniku 2"],
           lamp: "Prvi govornik, spiker, riječi je izgovorio standardno, s četiri naglaska i gdje je potrebno sa zanaglasnom dužinom. Drugi govornik, porijeklom iz Pule, riječi je izgovorio s jednim udarnim naglaskom, bez razlike u trajanju dugih i kratkih naglasaka, bez razlike u tonu uzlaznih i silaznih naglasaka te bez zanaglasne dužine. U nekim se riječima drugi govornik razlikuje od prvoga i po izgovoru mjesta naglaska",
+          scoring: {
+          "govorniku 1": { visinski: 2 },
+          "govorniku 2": { udarni: 2 }
+          },
         },
 
       /* ================= Q5 AUDIO ================= */
@@ -137,10 +162,16 @@ async function run() {
           quizId: "kviz1",
           order: 10,
           type: "select",
-          id: "q7_1",
+          id: "q5_1",
           question: "Moj je naglasni sustav __________.",
           options: ["udarni", "visinski", "miješani", "prijelazni"],
           lamp: "Naglasni sustavi se razlikuju po visini i trajanju.",
+          scoring: {
+          udarni: { udarni: 2 },
+          visinski: { visinski: 2 },
+          miješani: { miješani: 2 },
+          prijelazni: { visinski: 1, udarni: 1 }
+        },
         },
 
 
@@ -167,11 +198,17 @@ async function run() {
             quizId: "kviz1",
             order: 12,
             type: "select",
-            id: "q7_1",
+            id: "q6_1",
             question: "Koji izgovor pripada visinskom naglasnom sustavu?",
             options: ["Osijek", "Split", "Rijeka", "Pula"],
-            correct: "2",
+            correct: "Split",
             lamp: "Visinski sustav karakteriziraju uzlazni naglasci.",
+            scoring: {
+            Split: { visinski: 2 },
+            Osijek: { visinski: 1 },
+            Rijeka: { miješani: 1 },
+            Pula: { udarni: 2 }
+          },
           },
 
 
@@ -199,8 +236,12 @@ async function run() {
             id: "q7_1",
             question: "Koji od triju izgovora smatrate „običnim”, „češćim”?",
             options: ["1", "2", "3"],
-            correct: "2",
             lamp: "Ovi primjeri ilustriraju varijetetnost standarda. I Vaš će se izgovor vjerojatno razlikovati ovisno o komunikacijskoj situaciji, mjestu na kojemu govorite. Izgovor 2 smatra se neutralnijim, običnijim standardom, s obzirom na mjesto naglaska, u sociofonetskim istraživanjima.",
+            scoring: {
+            "1": { visinski: 2 },
+            "2": { miješani: 2 },
+            "3": { udarni: 2 }
+          },
           },
 
           /* ================= Q7.2 ================= */
@@ -212,8 +253,12 @@ async function run() {
             id: "q7_2",
             question: "Koji izgovor percipirate kao „visoki stil”, „naučen”, „akademski”, „biraniji stil”?",
             options: ["1", "2", "3"],
-            correct: "3",
             lamp: "Iako se Izgovor 1 smatra visokim i biranijim stilom, mnogi ga danas doživljaju zastarjelim ili regionalno obilježenim (ovisno o podrijetlu i dobi onoga tko procjenjuje izgovore). Ovaj bi izgovor mogao biti najbliži onima iz južne regije (zbog izgovora posuđenice televizija).",
+           scoring: {
+            "1": { visinski: 2 },
+            "2": { miješani: 1 },
+            "3": { udarni: 1 }
+          },
           },
 
           /* ================= Q7.3 ================= */
@@ -225,8 +270,12 @@ async function run() {
             id: "q7_3",
             question: "Koji izgovor smatrate „razgovornim”, „zagrebačkim” ili specifičnim za neki drugi lokalni govor, ali ne biste očekivali, primjerice, od nastavnika hrvatskoga jezika ili spikera na Hrvatskoj radioteleviziji da tako govore? ",
             options: ["1", "2", "3"],
-            correct: "3",
             lamp: "Ako ste takvim procijenili izgovor 3, to znači da ste tijekom školovanja stekli temeljna znanja o značajkama standardnoga izgovora te da ih možete prepoznavati.",
+            scoring: {
+            "1": { visinski: 1 },
+            "2": { miješani: 2 },
+            "3": { udarni: 2 }
+          },
           },
   
           /* ================= Q7.4 ================= */
@@ -239,8 +288,12 @@ async function run() {
             question: "Je li Vaš govor sličniji prvom, drugom ili trećem izgovoru?",
             options: ["1", "2", "3"],
             lamp: "Ako je Vaš govor najsličniji izgovoru 3, ponovno ste potvrdili da je Vaš naglasni sustav udarni, a ako je Vaš odgovor izgovor 1 ili 2, potvrdili ste da je Vaš naglasni sustav visinski ili miješani/prijelazni. Za detaljniju analizu Vašega naglasnog sutava potrebno je testirati i percepciju (izgovor), a to činimo naknadno, u aplikaciji Izgovaram.",
+            scoring: {
+            "1": { visinski: 1 },
+            "2": { miješani: 1 },
+            "3": { udarni: 1 }
           },
-
+          },
     ];
 
     const result = await QuizQuestion.insertMany(kviz);
