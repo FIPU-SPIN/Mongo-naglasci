@@ -8,7 +8,10 @@ const quizResultSchema = new mongoose.Schema({
   },
 
   quizId: String,
-  answers: Object,
+  answers: {
+  type: mongoose.Schema.Types.Mixed,
+  required: true,
+    },
   createdAt: {
     type: Date,
     default: Date.now,
