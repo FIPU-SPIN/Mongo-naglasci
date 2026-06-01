@@ -1,4 +1,4 @@
-// inventar - kviz4
+// seeds/kviz4.js
 
 require("dotenv").config();
 
@@ -25,7 +25,7 @@ async function run() {
         order: 1,
         type: "intro",
         title: "Naglasni inventar",
-        image: "/assets/images/kviz_inventar.png",
+        image: "/assets/images/inventar_kviz1.png",
         text: "U ovom kvizu provjeravamo znanje o naglasnom inventaru hrvatskoga standardnog jezika.",
       },
 
@@ -84,6 +84,7 @@ async function run() {
         type: "select",
         id: "q5",
         question: "Koji naglasak je označen znakom ȃ?",
+        image: "/assets/images/inventar_kviz2.png",
         options: ["kratkosilazni", "dugosilazni", "kratkouzlazni", "dugouzlazni"],
         correct: "1",
         lamp: "Znak ȃ označava dugosilazni naglasak.",
@@ -96,11 +97,12 @@ async function run() {
         type: "select",
         id: "q6",
         question: "Što je zanaglasna dužina?",
+        image: "/assets/images/inventar_kviz3.png",
         options: [
           "dužina ispred naglaska",
           "dužina iza naglaska",
           "kratki vokal iza naglaska",
-          "naglasak na zadnjem slogu"
+          "naglasak na zadnjem slogu",
         ],
         correct: "1",
         lamp: "Zanaglasna dužina je dužina koja se ostvaruje iza naglaska.",
@@ -129,7 +131,7 @@ async function run() {
           "standardni naglasak",
           "specifičan naglasak u dijalektima",
           "zanaglasna dužina",
-          "kračina"
+          "kračina",
         ],
         correct: "1",
         lamp: "Akut je specifičan naglasak koji se pojavljuje u dijalektima, a nije dio standarda.",
@@ -158,7 +160,7 @@ async function run() {
           "dugi nenaglašeni vokal",
           "kratki nenaglašeni vokal",
           "naglašeni vokal",
-          "zanaglasna dužina"
+          "zanaglasna dužina",
         ],
         correct: "1",
         lamp: "Kračina je kratki nenaglašeni vokal, označava se znakom ă.",
@@ -185,53 +187,7 @@ async function run() {
         question: "Koji naglasak se ne može ostvariti na zadnjem slogu?",
         options: ["kratkosilazni", "dugosilazni", "kratkouzlazni", "svi se mogu"],
         correct: "2",
-        lamp: "Uzlazni naglasci (kratkouzlazni i dugouzlazni) ne mogu se ostvariti na zadnjem slogu jer je za njih potrebno mjesto za uspon tona.",
-      },
-
-      /* ================= Q13 ================= */
-      {
-        quizId: "kviz4",
-        order: 14,
-        type: "select",
-        id: "q13",
-        question: "Koje su vrste naglasaka u visinskom sustavu?",
-        options: [
-          "samo silazni",
-          "samo uzlazni",
-          "silazni i uzlazni",
-          "dinamički"
-        ],
-        correct: "2",
-        lamp: "U visinskom naglasnom sustavu naglasci mogu biti silazni ili uzlazni.",
-      },
-
-      /* ================= Q14 ================= */
-      {
-        quizId: "kviz4",
-        order: 15,
-        type: "select",
-        id: "q14",
-        question: "Što je prednaglasna dužina?",
-        options: [
-          "dužina koja se pojavljuje u nekim dijalektima ispred naglaska",
-          "dužina iza naglaska",
-          "zanaglasna dužina",
-          "kračina"
-        ],
-        correct: "0",
-        lamp: "Prednaglasna dužina (ā) pojavljuje se u nekim dijalektima ispred naglaska.",
-      },
-
-      /* ================= Q15 ================= */
-      {
-        quizId: "kviz4",
-        order: 16,
-        type: "select",
-        id: "q15",
-        question: "Kako se bilježi udarni (dinamički) naglasak?",
-        options: ["ȁ", "a̍", "ā", "ă"],
-        correct: "1",
-        lamp: "Udarni naglasak bilježi se ravnom okomitom crtom, znakom za silinu (a̍).",
+        lamp: "Uzlazni naglasci (kratkouzlazni i dugouzlazni) ne mogu se ostvariti na zadnjem slogu.",
       },
     ];
 
