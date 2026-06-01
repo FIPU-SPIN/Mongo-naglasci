@@ -205,7 +205,7 @@ const quizResultSchema = new Schema({
   timestamps: true
 });
 
-const QuizResult = mongoose.model('QuizResult', quizResultSchema);
+const QuizScore = mongoose.model('QuizScore', quizResultSchema);
 
 // Page Schema
 const pageSchema = new Schema({
@@ -273,7 +273,7 @@ module.exports = {
   Task,
   UserTaskAttempt,
   InitialAssessment,
-  QuizResult,
+  QuizScore,
   Page,
   Subpage,
   connectDB
