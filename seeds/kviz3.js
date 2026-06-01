@@ -35,7 +35,7 @@ async function run() {
         order: 2,
         type: "select",
         id: "q1a",
-        question: "Koji naglasak može biti na podcrtanom slogu u riječima: slon, krov, vrat?",
+        question: "Koji naglasak može biti na podcrtanom slogu u riječima: <u>slon</u>, <u>krov</u>, <u>vrat</u>?",
         options: ["samo silazni", "samo uzlazni", "sva četiri naglaska"],
         correct: "0",
         lamp: "Jednosložne riječi mogu imati samo silazne naglaske.",
@@ -47,7 +47,7 @@ async function run() {
         order: 3,
         type: "select",
         id: "q1b",
-        question: "Koji naglasak može biti na podcrtanom slogu u riječima: jutro, sloga, zebra?",
+        question: "Koji naglasak može biti na podcrtanom slogu u riječima: <u>ju</u>tro, <u>slo</u>ga, <u>ze</u>bra?",
         options: ["samo silazni", "samo uzlazni", "sva četiri naglaska"],
         correct: "2",
         lamp: "Na prvom slogu dvosložnih i višesložnih riječi mogu se naći sva četiri naglaska.",
@@ -59,7 +59,7 @@ async function run() {
         order: 4,
         type: "select",
         id: "q1c",
-        question: "Koji naglasak može biti na podcrtanom slogu u riječima: sloboda, tišina, jačina?",
+        question: "Koji naglasak može biti na podcrtanom slogu u riječima: slo<u>bo</u>da, ti<u>ši</u>na, ja<u>či</u>na?",
         options: ["samo silazni", "samo uzlazni", "sva četiri naglaska"],
         correct: "1",
         lamp: "Na unutarnjem slogu (koji nije ni prvi ni zadnji) mogu biti samo uzlazni naglasci.",
@@ -71,26 +71,26 @@ async function run() {
         order: 5,
         type: "select",
         id: "q1d",
-        question: "Koji naglasak može biti na podcrtanom slogu u riječima: intervju, dokument?",
+        question: "Koji naglasak može biti na podcrtanom slogu u riječima: inter<u>vju</u>, doku<u>ment</u>?",
         options: ["samo silazni", "samo uzlazni", "sva četiri naglaska"],
         correct: "0",
         lamp: "Na zadnjem slogu mogu biti samo silazni naglasci.",
       },
 
       /* ================= Q2 ================= */
- {
-  quizId: "kviz3",
-  order: 6,
-  type: "audio_select",
-  id: "q2",
-  question: "Poslušajte izgovor sljedećih riječi s različitim mjestima istoga naglaska. Koji se naglasci ne nalaze ni na zadnjem slogu?",
-  voices: [
-    { label: "Klikni za izgovor", audio: "/audio/1-3-2.wav" }
-  ],
-  options: ["uzlazni", "silazni"],
-  correct: "0",
-  lamp: "Uzlazni naglasci (kratkouzlazni i dugouzlazni) ne mogu biti na zadnjem slogu u riječi.",
-},
+      {
+        quizId: "kviz3",
+        order: 6,
+        type: "audio_select",
+        id: "q2",
+        question: "Poslušajte izgovor sljedećih riječi s različitim mjestima istoga naglaska. Koji se naglasci ne nalaze ni na zadnjem slogu?",
+        voices: [
+          { label: "Klikni za izgovor", audio: "/audio/1-3-2.wav" }
+        ],
+        options: ["uzlazni", "silazni"],
+        correct: "0",
+        lamp: "Uzlazni naglasci (kratkouzlazni i dugouzlazni) ne mogu biti na zadnjem slogu u riječi.",
+      },
 
       /* ================= Q3 ================= */
       {
