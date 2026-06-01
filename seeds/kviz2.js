@@ -35,7 +35,7 @@ async function run() {
             type: "info",
             id: "q1",
             title: "Izgovorite sljedeću rečenicu naglas i odgonetnite s koliko ste je naglasaka izgovorili?",
-            question:"Ne da mi se nositi kišobran u školu",
+            text: "Ne da mi se nositi kišobran u školu",
             lamp: "Rečenica se čita s četiri naglaska, tj. četiri su sloga istaknuta pri njezinu izgovoru: Ne da mi se nositi kišobran u školu. ili Ne da mi se nositi kišobran u školu. Iz toga proizlazi da u govoru nije svaka pisana riječ naglašena.",
         },
 
