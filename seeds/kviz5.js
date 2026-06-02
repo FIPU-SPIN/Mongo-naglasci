@@ -48,7 +48,7 @@ async function run() {
         id: "q2",
         question: "Poslušajte izgovor imenice vrijeme, usporedite znakovlje u oblicima te odredite što se promijenilo u paradigmi.\n\nMislim na vrijéme. Nemam vrȅmena. Druga su vremèna.",
         voices: [
-          { label: "Poslušaj: vrijéme / vrȅmena / vremèna", audio: "/audio/1-6-1.wav.wav" },
+          { label: "Poslušaj.", audio: "/audio/1-6-1.wav.wav" },
         ],
         options: ["ton i trajanje", "mjesto i trajanje", "mjesto, ton i trajanje"],
         correct: "2",

@@ -32,10 +32,13 @@ async function run() {
         {
             quizId: "kviz2",
             order: 2,
-            type: "info",
+            type: "select",
             id: "q1",
             title: "Izgovorite sljedeću rečenicu naglas i odgonetnite s koliko ste je naglasaka izgovorili?",
-            text: "Ne da mi se nositi kišobran u školu",
+            question: "Ne da mi se nositi kišobran u školu.",
+            options: ["1", "2", "3", "4"],
+            correct: "4",
+
             lamp: "Rečenica se čita s četiri naglaska, tj. četiri su sloga istaknuta pri njezinu izgovoru: Ne da mi se nositi kišobran u školu. ili Ne da mi se nositi kišobran u školu. Iz toga proizlazi da u govoru nije svaka pisana riječ naglašena.",
         },
 
@@ -43,7 +46,7 @@ async function run() {
         {
             quizId: "kviz2",
             order: 3,
-            type: "select",
+            type: "select", 
             id: "q2",
             question: "Kako se nazivaju sve riječi bez naglaska?",
             options: ["klitike", "enklitike", "proklitike"],
