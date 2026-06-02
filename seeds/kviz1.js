@@ -291,9 +291,8 @@ async function run() {
             scoring: {
             "1": { visinski: 1 },
             "2": { miješani: 1 },
-            "3": { udarni: 1 }
-          },
-          },
+            "3": { udarni: 1 },
+          },},
     ];
 
     const result = await QuizQuestion.insertMany(kviz);
