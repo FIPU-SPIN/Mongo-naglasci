@@ -9,7 +9,11 @@ const quizQuestionSchema = new mongoose.Schema({
   quizId: String,
   order: Number,
   type: String,
-  id: String,
+  id: {
+  type: String,
+  required: true,
+  unique: false,
+  },
   title: String,
   question: String,
   text: String,
@@ -30,6 +34,18 @@ const quizQuestionSchema = new mongoose.Schema({
   b: String,
   c: String
 },
+scoring: {
+  type: Map,
+  of: new mongoose.Schema(
+    {
+      visinski: { type: Number, default: 0 },
+      udarni: { type: Number, default: 0 },
+      miješani: { type: Number, default: 0 },
+    },
+    { _id: false }
+  ),
+  default: {}
+}, 
 
 });
 

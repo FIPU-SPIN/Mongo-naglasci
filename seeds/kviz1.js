@@ -38,6 +38,11 @@ async function run() {
         options: ["kajkavskom", "čakavskom", "štokavskom"],
         correct: null,
         lamp: "Kajkavsko - sjever, čakavsko - zapad i jug, štokavsko - istok.",
+        scoring: {
+                  kajkavskom: { visinski: 1 },
+                  čakavskom: { udarni: 1 },
+                  štokavskom: { miješani: 1 }
+                }
       },
 
       /* ================= Q1B ================= */
@@ -50,6 +55,10 @@ async function run() {
         options: ["istom", "različitom"],
         correct: null,
         lamp: "Ako je različito, Vaš naglasni sustav može biti mješovit.",
+        scoring: {
+                  istom: { visinski: 1 },
+                  različitom: { udarni: 1 }
+                }
       },
 
       /* ================= Q2 ================= */
@@ -62,6 +71,12 @@ async function run() {
         options: ["zapadnoj", "sjevernoj", "južnoj", "istočnoj"],
         correct: null,
         lamp: "Ovisno o podrijetlu roditelja, Vaš naglasni sustav može biti drugačiji.",
+        scoring: {
+                  zapadnoj: { udarni: 1 },
+                  sjevernoj: { visinski: 1 },
+                  južnoj: { udarni: 1 },
+                  istočnoj: { miješani: 1 }
+                }
       },
 
       /* ================= Q3a ================= */
@@ -75,6 +90,12 @@ async function run() {
         options: ["sjeverna Hrvatska", "zapadna Hrvatska", "južna Hrvatska", "istočna Hrvatska"],
         correct: "3",
         lamp: "Govornik 1 dolazi iz istočne Hrvatske (Osijek).",
+        scoring: {
+                  "sjeverna Hrvatska": { visinski: 1 },
+                  "zapadna Hrvatska": { udarni: 1 },
+                  "južna Hrvatska": { udarni: 1 },
+                  "istočna Hrvatska": { miješani: 1 }
+                  }
       },
 
       /* ================= Q3b ================= */
@@ -88,6 +109,12 @@ async function run() {
         options: ["sjeverna Hrvatska", "zapadna Hrvatska", "južna Hrvatska", "istočna Hrvatska"],
         correct: "1",
         lamp: "Govornik 2 dolazi iz zapadne Hrvatske (Rijeka).",
+        scoring: {
+                  "sjeverna Hrvatska": { visinski: 1 },
+                  "zapadna Hrvatska": { udarni: 1 },
+                  "južna Hrvatska": { udarni: 1 },
+                  "istočna Hrvatska": { miješani: 1 }
+                  }
       },
 
       /* ================= Q3c ================= */
@@ -101,6 +128,12 @@ async function run() {
         options: ["sjeverna Hrvatska", "zapadna Hrvatska", "južna Hrvatska", "istočna Hrvatska"],
         correct: "0",
         lamp: "Govornica 3 dolazi iz sjeverne Hrvatske (Zagreb).",
+        scoring: {
+                  "sjeverna Hrvatska": { visinski: 1 },
+                  "zapadna Hrvatska": { udarni: 1 },
+                  "južna Hrvatska": { udarni: 1 },
+                  "istočna Hrvatska": { miješani: 1 }
+                  }
       },
 
       /* ================= Q3d ================= */
@@ -114,6 +147,12 @@ async function run() {
         options: ["sjeverna Hrvatska", "zapadna Hrvatska", "južna Hrvatska", "istočna Hrvatska"],
         correct: "2",
         lamp: "Govornica 4 dolazi iz južne Hrvatske (Split).",
+        scoring: {
+                  "sjeverna Hrvatska": { visinski: 1 },
+                  "zapadna Hrvatska": { udarni: 1 },
+                  "južna Hrvatska": { udarni: 1 },
+                  "istočna Hrvatska": { miješani: 1 }
+                  }
       },
 
       /* ================= Q4 ================= */
@@ -130,6 +169,10 @@ async function run() {
         options: ["Govorniku 1", "Govorniku 2"],
         correct: "0",
         lamp: "Govornik 1 govori standardno (visinski sustav), govornik 2 govori udarno.",
+        scoring: {
+                  "Govorniku 1": { visinski: 1 },
+                  "Govorniku 2": { udarni: 1 }
+                }
       },
 
       /* ================= Q5 ================= */
@@ -158,6 +201,12 @@ async function run() {
         options: ["udarni", "visinski", "miješani", "prijelazni"],
         correct: null,
         lamp: "Visinski - razlikuje ton i duljinu, udarni - samo mjesto naglaska.",
+        scoring: {
+                  udarni: { udarni: 1 },
+                  visinski: { visinski: 1 },
+                  miješani: { miješani: 1 },
+                  prijelazni: { miješani: 1 }
+                }
       },
 
       /* ================= Q6 ================= */
@@ -186,6 +235,12 @@ async function run() {
         options: ["Osijek", "Split", "Rijeka", "Pula"],
         correct: "1",
         lamp: "Split ima visinski naglasni sustav (uzlazni ton).",
+        scoring: {
+                  Osijek: { miješani: 1 },
+                  Split: { visinski: 1 },
+                  Rijeka: { udarni: 1 },
+                  Pula: { miješani: 1 }
+                }
       },
 
       /* ================= Q7 ================= */
@@ -213,6 +268,11 @@ async function run() {
         options: ["1", "2", "3"],
         correct: null,
         lamp: "Izgovor 2 smatra se neutralnijim standardom.",
+        scoring: {
+                  "1": { miješani: 1 },
+                  "2": { visinski: 1 },
+                  "3": { udarni: 1 }
+                }
       },
 
       /* ================= Q7.2 ================= */
@@ -225,6 +285,11 @@ async function run() {
         options: ["1", "2", "3"],
         correct: null,
         lamp: "Izgovor 1 smatra se visokim stilom.",
+        scoring: {
+                  "1": { visinski: 1 },
+                  "2": { miješani: 1 },
+                  "3": { udarni: 1 }
+                }
       },
 
       /* ================= Q7.3 ================= */
@@ -237,6 +302,11 @@ async function run() {
         options: ["1", "2", "3"],
         correct: null,
         lamp: "Izgovor 3 smatra se razgovornim stilom.",
+        scoring: {
+                  "1": { miješani: 1 },
+                  "2": { visinski: 1 },
+                  "3": { udarni: 1 }
+                }
       },
 
       /* ================= Q7.4 ================= */
@@ -249,6 +319,11 @@ async function run() {
         options: ["1", "2", "3"],
         correct: null,
         lamp: "Ako je sličniji izgovoru 3 - Vaš je naglasni sustav udarni.",
+        scoring: {
+                  "1": { visinski: 1 },
+                  "2": { miješani: 1 },
+                  "3": { udarni: 1 }
+                }
       },
 
     ];

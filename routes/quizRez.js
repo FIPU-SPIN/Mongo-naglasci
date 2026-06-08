@@ -50,16 +50,20 @@ router.post("/", auth, async (req, res) => {
 
     // računanje bodova
     for (const question of questions) {
-      const answer = answers?.[question.id];
-      if (!answer) continue;
+      const key = question.id || question._doc?.id;
+
+      const answer = answers?.[key];
+
+      if (answer === undefined || answer === null) continue;
 
       const score = question.scoring?.[answer];
+
       if (!score) continue;
 
-      for (const system in score) {
-        totals[system] += score[system];
-      }
-    }
+      Object.entries(score).forEach(([system, value]) => {
+        totals[system] += value;
+      });
+    } 
 
     // određivanje naglaska
     let accentSystem = "miješani";
