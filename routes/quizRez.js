@@ -22,15 +22,15 @@ function auth(req, res, next) {
 
   const resultTextMap = {
   visinski: {
-    text: "Tvoj je naglasni sustav VISINSKI",
+    text: "Tvoj je naglasni sustav: visinski",
     description: "Opis visinskog sustava..."
   },
   udarni: {
-    text: "Tvoj je naglasni sustav UDARNI",
+    text: "Tvoj je naglasni sustav: udarni",
     description: "Opis udarnog sustava..."
   },
   miješani: {
-    text: "Tvoj je naglasni sustav MIJEŠANI",
+    text: "Tvoj je naglasni sustav: miješani",
     description: "Opis miješanog sustava..."
   }
   };
